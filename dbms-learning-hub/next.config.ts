@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   // Enable static export for GitHub Pages / Netlify Drop
   output: 'export',
-  basePath: '/DBMS', // Required for GitHub Pages sub-path hosting
+  basePath: process.env.VERCEL ? '' : '/DBMS', // Required for GitHub Pages sub-path hosting, but causes 404 on Vercel root
   // Skip TS errors during build — MUI v7 Typography fontWeight is accepted at runtime
   typescript: {
     ignoreBuildErrors: true,
