@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // Enable static export for GitHub Pages / Netlify Drop
+  output: 'export',
+  basePath: '/DBMS', // Required for GitHub Pages sub-path hosting
   // Skip TS errors during build — MUI v7 Typography fontWeight is accepted at runtime
   typescript: {
     ignoreBuildErrors: true,
