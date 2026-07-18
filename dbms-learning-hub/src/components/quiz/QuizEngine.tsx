@@ -37,7 +37,7 @@ export default function QuizEngine() {
   const { addQuizSession } = useProgressStore();
   
   const [started, setStarted] = useState(false);
-  const [selectedModule, setSelectedModule] = useState<'all' | 'm1' | 'm2'>('all');
+  const [selectedModule, setSelectedModule] = useState<'all' | 'm1' | 'm2' | 'm3'>('all');
   
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -50,12 +50,12 @@ export default function QuizEngine() {
   const confettiRef = useRef<HTMLCanvasElement>(null);
 
   const startQuiz = () => {
-    let pool = quizQuestions;
-    if (selectedModule === 'm1') {
-      pool = quizQuestions.filter(q => !q.id.startsWith('m2'));
-    } else if (selectedModule === 'm2') {
-      pool = quizQuestions.filter(q => q.id.startsWith('m2'));
-    }
+    let pool = quizQuestions.filter(q => {
+      if (selectedModule === 'm1') return !q.id.startsWith('m2') && !q.id.startsWith('m3');
+      if (selectedModule === 'm2') return q.id.startsWith('m2');
+      if (selectedModule === 'm3') return q.id.startsWith('m3');
+      return true;
+    });
     
     // Pick up to 10 random questions
     const selectedQs = [...pool].sort(() => Math.random() - 0.5).slice(0, 10);
@@ -83,6 +83,7 @@ export default function QuizEngine() {
           <ToggleButton value="all" sx={{ px: 3, fontWeight: 700 }}>All Modules</ToggleButton>
           <ToggleButton value="m1" sx={{ px: 3, fontWeight: 700 }}>Module 1 (Intro)</ToggleButton>
           <ToggleButton value="m2" sx={{ px: 3, fontWeight: 700 }}>Module 2 (ER Modeling)</ToggleButton>
+          <ToggleButton value="m3" sx={{ px: 3, fontWeight: 700 }}>Module 3 (Relational Model)</ToggleButton>
         </ToggleButtonGroup>
         
         <Box>

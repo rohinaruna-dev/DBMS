@@ -41,12 +41,13 @@ export default function VivaPage() {
   const [showAnswer, setShowAnswer] = useState(false);
   const [history, setHistory] = useState<VivaQuestion[]>([]);
   const [category, setCategory] = useState('All');
-  const [moduleFilter, setModuleFilter] = useState<'all' | 'm1' | 'm2'>('all');
+  const [moduleFilter, setModuleFilter] = useState<'all' | 'm1' | 'm2' | 'm3'>('all');
   const [practiced, setPracticed] = useState(0);
 
   const filtered = vivaQuestions.filter(q => {
-    if (moduleFilter === 'm1' && q.id.startsWith('m2')) return false;
+    if (moduleFilter === 'm1' && (q.id.startsWith('m2') || q.id.startsWith('m3'))) return false;
     if (moduleFilter === 'm2' && !q.id.startsWith('m2')) return false;
+    if (moduleFilter === 'm3' && !q.id.startsWith('m3')) return false;
     if (category !== 'All' && q.category !== category) return false;
     return true;
   });
@@ -101,6 +102,7 @@ export default function VivaPage() {
           <ToggleButton value="all" sx={{ fontWeight: 700 }}>All Modules</ToggleButton>
           <ToggleButton value="m1" sx={{ fontWeight: 700 }}>Module 1</ToggleButton>
           <ToggleButton value="m2" sx={{ fontWeight: 700 }}>Module 2</ToggleButton>
+          <ToggleButton value="m3" sx={{ fontWeight: 700 }}>Module 3</ToggleButton>
         </ToggleButtonGroup>
 
         <FormControl size="small" sx={{ minWidth: 180 }}>

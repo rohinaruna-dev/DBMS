@@ -21,6 +21,14 @@ export const searchIndex: SearchItem[] = [
     url: '/module2/topic1',
     icon: '📐',
   },
+  {
+    id: 's-module3-topic1',
+    type: 'topic',
+    title: 'Relational Model',
+    content: 'Module 3 Topic 1 Relational Model Database Structure Integrity Constraints Logical Design ER Relational Views Relational Algebra Relational Calculus',
+    url: '/module3/topic1',
+    icon: '📊',
+  },
   // ─── Sections ────────────────────────────────────────────
   {
     id: 's-why-dbms',

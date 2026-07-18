@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic';
 const DbmsSimulator = dynamic(() => import('@/components/playground/DbmsSimulator'), { ssr: false });
 const ErConceptClassifier = dynamic(() => import('@/components/playground/ErConceptClassifier'), { ssr: false });
 const CardinalityMatcher = dynamic(() => import('@/components/playground/CardinalityMatcher'), { ssr: false });
+const RelationalAlgebraMatcher = dynamic(() => import('@/components/playground/RelationalAlgebraMatcher'), { ssr: false });
 
 export default function PlaygroundPage() {
   const theme = useTheme();
@@ -16,6 +17,7 @@ export default function PlaygroundPage() {
     { label: 'SQL Table Simulator', color: '#06b6d4', component: <DbmsSimulator /> },
     { label: 'ER Concept Classifier', color: '#10b981', component: <ErConceptClassifier /> },
     { label: 'Cardinality Matcher', color: '#ec4899', component: <CardinalityMatcher /> },
+    { label: 'Relational Algebra Matcher', color: '#6366f1', component: <RelationalAlgebraMatcher /> },
   ];
 
   return (

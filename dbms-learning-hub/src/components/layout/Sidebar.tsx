@@ -28,6 +28,7 @@ import SpeedIcon from '@mui/icons-material/Speed';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import InfoIcon from '@mui/icons-material/Info';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import StorageIcon from '@mui/icons-material/Storage';
 import { usePathname, useRouter } from 'next/navigation';
 import { useProgressStore } from '@/store/progressStore';
 
@@ -55,10 +56,17 @@ const navItems: NavItemDef[] = [
     badge: 'M2·T1',
     color: '#ec4899',
   },
-  { label: 'Playground', href: '/playground', icon: <SportsEsportsIcon />, color: '#06b6d4' },
-  { label: 'Quiz Center', href: '/quiz', icon: <QuizIcon />, color: '#10b981' },
+  {
+    label: 'Relational Model',
+    href: '/module3/topic1',
+    icon: <StorageIcon />,
+    badge: 'M3·T1',
+    color: '#06b6d4',
+  },
+  { label: 'Playground', href: '/playground', icon: <SportsEsportsIcon />, color: '#10b981' },
+  { label: 'Quiz Center', href: '/quiz', icon: <QuizIcon />, color: '#f59e0b' },
   { label: 'Viva Corner', href: '/viva', icon: <MicIcon />, color: '#ef4444' },
-  { label: 'Revision Notes', href: '/revision', icon: <SpeedIcon />, color: '#f59e0b' },
+  { label: 'Revision Notes', href: '/revision', icon: <SpeedIcon />, color: '#8b5cf6' },
   { label: 'Progress Tracker', href: '/progress', icon: <TrendingUpIcon />, color: '#ec4899' },
   { label: 'About', href: '/about', icon: <InfoIcon />, color: '#64748b' },
 ];
@@ -85,8 +93,9 @@ export default function Sidebar({ onClose }: SidebarProps) {
   };
 
   const isModule2 = pathname.startsWith('/module2');
-  const moduleLabel = isModule2 ? 'MODULE 2' : 'MODULE 1';
-  const moduleTitle = isModule2 ? 'ER Modeling' : 'Introduction to DBMS';
+  const isModule3 = pathname.startsWith('/module3');
+  const moduleLabel = isModule3 ? 'MODULE 3' : (isModule2 ? 'MODULE 2' : 'MODULE 1');
+  const moduleTitle = isModule3 ? 'Relational Model' : (isModule2 ? 'ER Modeling' : 'Introduction to DBMS');
 
   return (
     <Box

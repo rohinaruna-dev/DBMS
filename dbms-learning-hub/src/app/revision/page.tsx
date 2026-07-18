@@ -28,21 +28,22 @@ import { useProgressStore } from '@/store/progressStore';
 export default function RevisionPage() {
   const theme = useTheme();
   const { markRevisionCardViewed } = useProgressStore();
-  const [moduleFilter, setModuleFilter] = useState<'all' | 'm1' | 'm2'>('all');
+  const [moduleFilter, setModuleFilter] = useState<'all' | 'm1' | 'm2' | 'm3'>('all');
   const [current, setCurrent] = useState(0);
   const [viewed, setViewed] = useState<Set<string>>(new Set());
   const [dir, setDir] = useState(1);
 
   const filteredCards = revisionCards.filter(c => {
-    if (moduleFilter === 'm1' && c.id.startsWith('m2')) return false;
+    if (moduleFilter === 'm1' && (c.id.startsWith('m2') || c.id.startsWith('m3'))) return false;
     if (moduleFilter === 'm2' && !c.id.startsWith('m2')) return false;
+    if (moduleFilter === 'm3' && !c.id.startsWith('m3')) return false;
     return true;
   });
 
   const card = filteredCards[current];
   const progress = (viewed.size / revisionCards.length) * 100;
 
-  const handleModuleChange = (newModule: 'all' | 'm1' | 'm2') => {
+  const handleModuleChange = (newModule: 'all' | 'm1' | 'm2' | 'm3') => {
     setModuleFilter(newModule);
     setCurrent(0);
     setDir(1);
@@ -92,6 +93,7 @@ export default function RevisionPage() {
           <ToggleButton value="all" sx={{ fontWeight: 700 }}>All Modules</ToggleButton>
           <ToggleButton value="m1" sx={{ fontWeight: 700 }}>Module 1</ToggleButton>
           <ToggleButton value="m2" sx={{ fontWeight: 700 }}>Module 2</ToggleButton>
+          <ToggleButton value="m3" sx={{ fontWeight: 700 }}>Module 3</ToggleButton>
         </ToggleButtonGroup>
       </Box>
 
