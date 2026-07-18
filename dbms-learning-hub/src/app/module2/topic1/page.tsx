@@ -25,6 +25,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import SearchIcon from '@mui/icons-material/Search';
 import { motion } from 'framer-motion';
 import { useProgressStore } from '@/store/progressStore';
+import { vivaQuestions } from '@/data/vivaData';
 
 const MotionBox = motion(Box);
 
@@ -203,6 +204,24 @@ export default function Topic1Page() {
                </ol>
             </Box>
          </Box>
+      )
+    },
+    {
+      id: 'viva-questions',
+      title: 'Module 2 Viva Questions',
+      emoji: '🎤',
+      color: '#ef4444',
+      summary: 'Practice your oral exam skills with these frequently asked viva questions for ER Modeling.',
+      keywords: ['viva', 'questions', 'exam', 'practice', 'oral'],
+      content: (
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          {vivaQuestions.filter(q => q.id.startsWith('m2')).map((q, i) => (
+             <Box key={q.id} sx={{ p: 2, bgcolor: alpha('#ef4444', 0.05), borderRadius: 2, border: `1px solid ${alpha('#ef4444', 0.1)}` }}>
+                <Typography variant="subtitle2" fontWeight={800} sx={{ mb: 1 }}>Q{i+1}: {q.question}</Typography>
+                <Typography variant="body2" color="text.secondary"><strong>Answer:</strong> {q.answer}</Typography>
+             </Box>
+          ))}
+        </Box>
       )
     }
   ];
