@@ -151,5 +151,40 @@ export const vivaQuestions: VivaQuestion[] = [
     answer: 'Specialization is a top-down design process where a general entity (superclass) is broken down into more specific entities (subclasses) based on distinguishing characteristics. For example, breaking "Person" into "Student" and "Employee".',
     category: 'Concepts',
     difficulty: 'hard',
+  },
+  {
+    id: 'm2v5',
+    question: 'What is a Multi-valued Attribute?',
+    answer: 'A multi-valued attribute is an attribute that can have more than one value for a single entity instance. For example, a student can have multiple phone numbers. It is represented by a double ellipse in an ER diagram.',
+    category: 'Concepts',
+    difficulty: 'medium',
+  },
+  {
+    id: 'm2v6',
+    question: 'What is Generalization?',
+    answer: 'Generalization is a bottom-up design process where multiple lower-level entities are combined to form a higher-level general entity. For example, combining "Car" and "Truck" into "Vehicle".',
+    category: 'Concepts',
+    difficulty: 'hard',
+  },
+  {
+    id: 'm2v7',
+    question: 'How do you represent a relationship in an ER diagram?',
+    answer: 'Relationships are represented by diamond shapes. Lines connect the diamond to the participating entities. Identifying relationships for weak entities are represented by double diamonds.',
+    category: 'Concepts',
+    difficulty: 'easy',
+  },
+  {
+    id: 'm2v8',
+    question: 'What is the purpose of an ER diagram?',
+    answer: 'An ER diagram is a conceptual blueprint of a database. It visually represents the entities, their attributes, and the relationships between them, making it easier for stakeholders and developers to understand the database structure before implementing it in SQL.',
+    category: 'Design Issues',
+    difficulty: 'medium',
+  },
+  {
+    id: 'm2v9',
+    question: 'Give an example of a 1:N (One-to-Many) relationship.',
+    answer: 'A classic example is a Department and Employees. One Department can have many Employees working in it, but each Employee belongs to only one Department.',
+    category: 'Constraints',
+    difficulty: 'easy',
   }
 ];

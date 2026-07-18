@@ -117,5 +117,37 @@ export const revisionCards: RevisionCard[] = [
     emoji: '🔢',
     category: 'Constraints',
     color: '#10b981',
+  },
+  {
+    id: 'm2r4',
+    title: 'Composite Attributes',
+    content: '🧩 Composite Attribute:\nAn attribute that can be broken down into sub-parts.\n\nExample:\n"Address" can be divided into Street, City, State, and Zip Code.\n\n🔑 Represented in an ER diagram with smaller ellipses connected to the main attribute ellipse.',
+    emoji: '🧩',
+    category: 'Concepts',
+    color: '#f59e0b',
+  },
+  {
+    id: 'm2r5',
+    title: 'Multi-valued Attributes',
+    content: '👥 Multi-valued Attribute:\nAn attribute that can hold multiple values for a single entity.\n\nExample:\nA student can have multiple "Phone Numbers" or "Email Addresses".\n\n🔑 Represented by a Double Ellipse.',
+    emoji: '👥',
+    category: 'Concepts',
+    color: '#06b6d4',
+  },
+  {
+    id: 'm2r6',
+    title: 'Specialization (Top-Down)',
+    content: '🔽 Specialization:\nBreaking down a higher-level entity into lower-level entities.\n\nExample:\nEntity "Employee" is specialized into "Full-Time" and "Part-Time".\n\n🔑 It highlights the differences between sub-entities.',
+    emoji: '🔽',
+    category: 'Design Issues',
+    color: '#8b5cf6',
+  },
+  {
+    id: 'm2r7',
+    title: 'Generalization (Bottom-Up)',
+    content: '🔼 Generalization:\nCombining multiple lower-level entities into a higher-level entity.\n\nExample:\n"Car" and "Truck" are generalized into "Vehicle".\n\n🔑 It emphasizes the common characteristics among entities.',
+    emoji: '🔼',
+    category: 'Design Issues',
+    color: '#ec4899',
   }
 ];
