@@ -161,7 +161,7 @@ export default function HomePage() {
                     letterSpacing: '-0.03em',
                   }}
                 >
-                  Master Database Management Systems
+                  Database Management Systems
                 </Typography>
 
                 <Typography
