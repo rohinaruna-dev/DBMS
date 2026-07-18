@@ -20,6 +20,8 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
+  ToggleButton,
+  ToggleButtonGroup,
 } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import MicIcon from '@mui/icons-material/Mic';
@@ -39,9 +41,15 @@ export default function VivaPage() {
   const [showAnswer, setShowAnswer] = useState(false);
   const [history, setHistory] = useState<VivaQuestion[]>([]);
   const [category, setCategory] = useState('All');
+  const [moduleFilter, setModuleFilter] = useState<'all' | 'm1' | 'm2'>('all');
   const [practiced, setPracticed] = useState(0);
 
-  const filtered = category === 'All' ? vivaQuestions : vivaQuestions.filter(q => q.category === category);
+  const filtered = vivaQuestions.filter(q => {
+    if (moduleFilter === 'm1' && q.id.startsWith('m2')) return false;
+    if (moduleFilter === 'm2' && !q.id.startsWith('m2')) return false;
+    if (category !== 'All' && q.category !== category) return false;
+    return true;
+  });
 
   const askQuestion = () => {
     const available = filtered.filter(q => q.id !== current?.id);
@@ -81,8 +89,20 @@ export default function VivaPage() {
         </Paper>
       </Box>
 
-      {/* Filter */}
-      <Box sx={{ mb: 3 }}>
+      {/* Filters */}
+      <Box sx={{ mb: 3, display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
+        <ToggleButtonGroup
+          color="primary"
+          value={moduleFilter}
+          exclusive
+          onChange={(e, v) => v && setModuleFilter(v)}
+          size="small"
+        >
+          <ToggleButton value="all" sx={{ fontWeight: 700 }}>All Modules</ToggleButton>
+          <ToggleButton value="m1" sx={{ fontWeight: 700 }}>Module 1</ToggleButton>
+          <ToggleButton value="m2" sx={{ fontWeight: 700 }}>Module 2</ToggleButton>
+        </ToggleButtonGroup>
+
         <FormControl size="small" sx={{ minWidth: 180 }}>
           <InputLabel>Filter by Category</InputLabel>
           <Select value={category} label="Filter by Category" onChange={(e) => setCategory(e.target.value)} id="viva-category-select">

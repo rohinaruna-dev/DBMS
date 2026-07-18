@@ -8,9 +8,6 @@ import {
   Box,
   Typography,
   Button,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
   Paper,
   LinearProgress,
   Chip,
@@ -19,6 +16,8 @@ import {
   Collapse,
   IconButton,
   Tooltip,
+  ToggleButton,
+  ToggleButtonGroup,
 } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -26,24 +25,80 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { quizQuestions } from '@/data/quizData';
 import { useProgressStore } from '@/store/progressStore';
-import type { QuizResult, QuizSession } from '@/types';
+import type { QuizResult, QuizSession, QuizQuestion } from '@/types';
 
 const DIFFICULTY_COLOR = { easy: '#10b981', medium: '#f59e0b', hard: '#ef4444' };
 
 export default function QuizEngine() {
   const theme = useTheme();
   const { addQuizSession } = useProgressStore();
+  
+  const [started, setStarted] = useState(false);
+  const [selectedModule, setSelectedModule] = useState<'all' | 'm1' | 'm2'>('all');
+  
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [results, setResults] = useState<QuizResult[]>([]);
   const [finished, setFinished] = useState(false);
-  const [startTime] = useState(Date.now());
+  const [startTime, setStartTime] = useState(Date.now());
   const [questionStartTime, setQuestionStartTime] = useState(Date.now());
-  const [shuffled] = useState(() => [...quizQuestions].sort(() => Math.random() - 0.5).slice(0, 10));
+  const [shuffled, setShuffled] = useState<QuizQuestion[]>([]);
   const confettiRef = useRef<HTMLCanvasElement>(null);
+
+  const startQuiz = () => {
+    let pool = quizQuestions;
+    if (selectedModule === 'm1') {
+      pool = quizQuestions.filter(q => !q.id.startsWith('m2'));
+    } else if (selectedModule === 'm2') {
+      pool = quizQuestions.filter(q => q.id.startsWith('m2'));
+    }
+    
+    // Pick up to 10 random questions
+    const selectedQs = [...pool].sort(() => Math.random() - 0.5).slice(0, 10);
+    setShuffled(selectedQs);
+    setStartTime(Date.now());
+    setQuestionStartTime(Date.now());
+    setStarted(true);
+  };
+
+  if (!started) {
+    return (
+      <Paper elevation={0} sx={{ p: 4, borderRadius: 4, textAlign: 'center', border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`, bgcolor: alpha(theme.palette.primary.main, 0.03) }}>
+        <Typography variant="h5" fontWeight={800} mb={2}>Quiz Configuration</Typography>
+        <Typography variant="body2" color="text.secondary" mb={3}>
+          Select which module you want to focus on. We'll pick up to 10 random questions from the selected pool.
+        </Typography>
+        
+        <ToggleButtonGroup
+          color="primary"
+          value={selectedModule}
+          exclusive
+          onChange={(e, v) => v && setSelectedModule(v)}
+          sx={{ mb: 4 }}
+        >
+          <ToggleButton value="all" sx={{ px: 3, fontWeight: 700 }}>All Modules</ToggleButton>
+          <ToggleButton value="m1" sx={{ px: 3, fontWeight: 700 }}>Module 1 (Intro)</ToggleButton>
+          <ToggleButton value="m2" sx={{ px: 3, fontWeight: 700 }}>Module 2 (ER Modeling)</ToggleButton>
+        </ToggleButtonGroup>
+        
+        <Box>
+          <Button 
+            variant="contained" 
+            size="large" 
+            endIcon={<PlayArrowIcon />} 
+            onClick={startQuiz}
+            sx={{ px: 6, py: 1.5, borderRadius: 3, fontWeight: 800, background: 'linear-gradient(135deg, #6366f1, #8b5cf6)' }}
+          >
+            Start Quiz
+          </Button>
+        </Box>
+      </Paper>
+    );
+  }
 
   const question = shuffled[currentIndex];
   const correctCount = results.filter((r) => r.isCorrect).length;
@@ -93,7 +148,7 @@ export default function QuizEngine() {
     setSubmitted(false);
     setResults([]);
     setFinished(false);
-    setQuestionStartTime(Date.now());
+    setStarted(false); // Go back to config screen
   };
 
   if (finished) {
@@ -111,6 +166,8 @@ export default function QuizEngine() {
       />
     );
   }
+
+  if (!question) return null;
 
   return (
     <Box>
@@ -139,8 +196,8 @@ export default function QuizEngine() {
               label={question.difficulty}
               size="small"
               sx={{
-                bgcolor: alpha(DIFFICULTY_COLOR[question.difficulty], 0.15),
-                color: DIFFICULTY_COLOR[question.difficulty],
+                bgcolor: alpha(DIFFICULTY_COLOR[question.difficulty as keyof typeof DIFFICULTY_COLOR], 0.15),
+                color: DIFFICULTY_COLOR[question.difficulty as keyof typeof DIFFICULTY_COLOR],
                 fontWeight: 700,
                 height: 22,
               }}
