@@ -84,6 +84,10 @@ export default function Sidebar({ onClose }: SidebarProps) {
     onClose?.();
   };
 
+  const isModule2 = pathname.startsWith('/module2');
+  const moduleLabel = isModule2 ? 'MODULE 2' : 'MODULE 1';
+  const moduleTitle = isModule2 ? 'ER Modeling' : 'Introduction to DBMS';
+
   return (
     <Box
       sx={{
@@ -99,11 +103,11 @@ export default function Sidebar({ onClose }: SidebarProps) {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.5 }}>
           <MenuBookIcon sx={{ color: 'primary.main', fontSize: '1.1rem' }} />
           <Typography variant="caption" fontWeight={700} color="text.secondary" letterSpacing="0.08em">
-            MODULE 1
+            {moduleLabel}
           </Typography>
         </Box>
         <Typography variant="body2" fontWeight={700} color="text.primary">
-          Introduction to DBMS
+          {moduleTitle}
         </Typography>
 
         {/* Mini progress */}
