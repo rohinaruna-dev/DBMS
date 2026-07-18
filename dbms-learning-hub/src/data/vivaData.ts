@@ -124,4 +124,32 @@ export const vivaQuestions: VivaQuestion[] = [
     category: 'Functions',
     difficulty: 'medium',
   },
+  {
+    id: 'm2v1',
+    question: 'What is an Entity in the ER Model?',
+    answer: 'An entity is a real-world object or concept that exists independently and has data associated with it, such as a Student, Employee, or Course. It is represented by a rectangle in an ER diagram.',
+    category: 'Concepts',
+    difficulty: 'easy',
+  },
+  {
+    id: 'm2v2',
+    question: 'Explain the difference between a Strong Entity and a Weak Entity.',
+    answer: 'A strong entity has its own primary key and can exist independently. A weak entity does not have a primary key and its existence depends on a strong entity. A strong entity is represented by a single rectangle, while a weak entity is represented by a double rectangle.',
+    category: 'Design Issues',
+    difficulty: 'medium',
+  },
+  {
+    id: 'm2v3',
+    question: 'What are Cardinality Constraints?',
+    answer: 'Cardinality constraints define the maximum number of relationship instances that an entity can participate in. The common types are One-to-One (1:1), One-to-Many (1:N), Many-to-One (N:1), and Many-to-Many (M:N).',
+    category: 'Constraints',
+    difficulty: 'medium',
+  },
+  {
+    id: 'm2v4',
+    question: 'What is Specialization in ER Modeling?',
+    answer: 'Specialization is a top-down design process where a general entity (superclass) is broken down into more specific entities (subclasses) based on distinguishing characteristics. For example, breaking "Person" into "Student" and "Employee".',
+    category: 'Concepts',
+    difficulty: 'hard',
+  }
 ];

@@ -94,4 +94,28 @@ export const revisionCards: RevisionCard[] = [
     category: 'Exam Tips',
     color: '#ec4899',
   },
+  {
+    id: 'm2r1',
+    title: 'ER Modeling Basics',
+    content: '🧩 ER Model = Entity-Relationship Model\n\n• Entity: Real-world object (Student)\n• Attribute: Property of entity (Name)\n• Relationship: Association between entities (Enrolls In)\n\n🔑 It is a conceptual design blueprint before creating SQL tables.',
+    emoji: '🧩',
+    category: 'Concepts',
+    color: '#6366f1',
+  },
+  {
+    id: 'm2r2',
+    title: 'Strong vs Weak Entity',
+    content: '💪 Strong Entity:\nHas its own primary key. Can exist independently. (e.g., Student)\n\n🔗 Weak Entity:\nNo primary key. Depends on a strong entity for existence. (e.g., Room depends on Building)\n\n🔑 Strong = Single Rectangle | Weak = Double Rectangle',
+    emoji: '💪',
+    category: 'Design Issues',
+    color: '#ef4444',
+  },
+  {
+    id: 'm2r3',
+    title: 'Cardinality Constraints',
+    content: '🔢 Mapping Cardinalities:\n\n1:1 (One-to-One): Person - Passport\n1:N (One-to-Many): Department - Employees\nN:1 (Many-to-One): Employees - Department\nM:N (Many-to-Many): Students - Courses\n\n🔑 Defines the maximum number of relationship instances.',
+    emoji: '🔢',
+    category: 'Constraints',
+    color: '#10b981',
+  }
 ];

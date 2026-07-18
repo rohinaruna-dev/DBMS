@@ -179,4 +179,45 @@ export const quizQuestions: QuizQuestion[] = [
     topic: 'Core Functions',
     difficulty: 'medium',
   },
+  {
+    id: 'm2q1',
+    question: 'In an ER diagram, an Entity is represented by a:',
+    options: ['Diamond', 'Ellipse', 'Rectangle', 'Triangle'],
+    correctIndex: 2,
+    explanation: 'Entities are represented by rectangles in an ER diagram, while diamonds represent relationships and ellipses represent attributes.',
+    topic: 'ER Modeling Concepts',
+    difficulty: 'easy',
+  },
+  {
+    id: 'm2q2',
+    question: 'A relationship where one entity is associated with exactly one other entity is called:',
+    options: ['One-to-Many', 'Many-to-Many', 'One-to-One', 'Many-to-One'],
+    correctIndex: 2,
+    explanation: 'In a One-to-One relationship, an instance of Entity A is associated with exactly one instance of Entity B.',
+    topic: 'Cardinality Constraints',
+    difficulty: 'easy',
+  },
+  {
+    id: 'm2q3',
+    question: 'Which of the following is true about a Weak Entity?',
+    options: [
+      'It has its own primary key',
+      'It depends on a strong entity for its existence',
+      'It cannot have any attributes',
+      'It is represented by a single rectangle'
+    ],
+    correctIndex: 1,
+    explanation: 'A weak entity lacks a primary key of its own and depends entirely on a strong entity (the identifying entity) for its existence. It is represented by a double rectangle.',
+    topic: 'Weak-Entity Types',
+    difficulty: 'medium',
+  },
+  {
+    id: 'm2q4',
+    question: 'The bottom-up approach of abstraction in ER modeling is called:',
+    options: ['Specialization', 'Generalization', 'Inheritance', 'Aggregation'],
+    correctIndex: 1,
+    explanation: 'Generalization is a bottom-up approach where lower-level entities are combined to form a higher-level (more general) entity.',
+    topic: 'Specialization and Generalization',
+    difficulty: 'medium',
+  }
 ];

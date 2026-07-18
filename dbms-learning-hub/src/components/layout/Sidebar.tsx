@@ -48,6 +48,13 @@ const navItems: NavItemDef[] = [
     badge: 'M1·T1',
     color: '#8b5cf6',
   },
+  {
+    label: 'ER Modeling',
+    href: '/module2/topic1',
+    icon: <MenuBookIcon />,
+    badge: 'M2·T1',
+    color: '#ec4899',
+  },
   { label: 'Playground', href: '/playground', icon: <SportsEsportsIcon />, color: '#06b6d4' },
   { label: 'Quiz Center', href: '/quiz', icon: <QuizIcon />, color: '#10b981' },
   { label: 'Viva Corner', href: '/viva', icon: <MicIcon />, color: '#ef4444' },

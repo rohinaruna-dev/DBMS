@@ -13,6 +13,14 @@ export const searchIndex: SearchItem[] = [
     url: '/module1/topic1',
     icon: '📚',
   },
+  {
+    id: 's-module2-topic1',
+    type: 'topic',
+    title: 'ER Modeling',
+    content: 'Module 2 Topic 1 Entity Relationship Model ER Design Issues Cardinality Constraints Weak Entities Subclasses Specialization Generalization',
+    url: '/module2/topic1',
+    icon: '📐',
+  },
   // ─── Sections ────────────────────────────────────────────
   {
     id: 's-why-dbms',
