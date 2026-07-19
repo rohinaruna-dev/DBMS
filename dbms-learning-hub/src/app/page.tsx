@@ -164,13 +164,7 @@ export default function HomePage() {
                   Database Management Systems
                 </Typography>
 
-                <Typography
-                  variant="h5"
-                  color="text.secondary"
-                  sx={{ mb: 2, fontWeight: 400, fontSize: { xs: '1rem', md: '1.2rem' } }}
-                >
-                  Interactively
-                </Typography>
+
 
                 <Typography
                   variant="h6"
@@ -435,42 +429,7 @@ export default function HomePage() {
         </Grid>
       </Container>
 
-      {/* ═══════════════════════════════════════════════════════
-          DBMS APPS MARQUEE
-      ═══════════════════════════════════════════════════════ */}
-      <Box
-        sx={{
-          py: 4,
-          bgcolor: alpha(theme.palette.primary.main, 0.04),
-          borderTop: `1px solid ${alpha(theme.palette.primary.main, 0.08)}`,
-          overflow: 'hidden',
-        }}
-      >
-        <Typography variant="body2" color="text.secondary" textAlign="center" mb={2} fontWeight={600}>
-          DBMS POWERS APPLICATIONS LIKE
-        </Typography>
-        <Box
-          sx={{
-            display: 'flex',
-            gap: 3,
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-          }}
-        >
-          {dbmsApps.map((app, i) => (
-            <Chip
-              key={i}
-              label={app}
-              sx={{
-                fontWeight: 700,
-                bgcolor: alpha(theme.palette.primary.main, 0.1),
-                border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
-                fontSize: '0.85rem',
-              }}
-            />
-          ))}
-        </Box>
-      </Box>
+
 
       {/* ═══════════════════════════════════════════════════════
           CTA BANNER
