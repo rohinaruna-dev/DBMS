@@ -81,9 +81,35 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           minHeight: 'calc(100vh - 64px)',
           bgcolor: 'background.default',
           transition: 'background-color 0.3s ease',
+          display: 'flex',
+          flexDirection: 'column',
         }}
       >
-        {children}
+        <Box sx={{ flexGrow: 1 }}>
+          {children}
+        </Box>
+        
+        {/* ── Footer with View Counter ── */}
+        <Box 
+          component="footer" 
+          sx={{ 
+            py: 3, 
+            textAlign: 'center', 
+            borderTop: '1px solid', 
+            borderColor: 'divider',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            mt: 'auto',
+            bgcolor: 'background.paper'
+          }}
+        >
+          <img 
+            src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fdbms-jagvs0asj-rohinaruna-1042s-projects.vercel.app&count_bg=%232563EB&title_bg=%230F172A&title=Total+Views&edge_flat=true" 
+            alt="Visitor Count" 
+          />
+        </Box>
       </Box>
     </Box>
   );
