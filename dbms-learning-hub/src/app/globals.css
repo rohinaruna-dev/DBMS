@@ -7,9 +7,9 @@
 
 /* ─── CSS Custom Properties ─────────────────────────────────── */
 :root {
-  --primary: #6366f1;
-  --primary-light: #818cf8;
-  --secondary: #06b6d4;
+  --primary: #2563eb;
+  --primary-light: #60a5fa;
+  --secondary: #475569;
   --accent: #f59e0b;
   --success: #10b981;
   --error: #ef4444;
@@ -72,7 +72,7 @@ body {
 
 /* ─── Gradient Text ─────────────────────────────────────────── */
 .gradient-text {
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -80,7 +80,7 @@ body {
 
 /* ─── Animated Gradient Background ─────────────────────────── */
 .gradient-bg {
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #38bdf8 100%);
   background-size: 200% 200%;
   animation: gradientShift 4s ease infinite;
 }
@@ -93,11 +93,11 @@ body {
 
 /* ─── Glow Effect ───────────────────────────────────────────── */
 .glow {
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4), 0 0 60px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.4), 0 0 60px rgba(37, 99, 235, 0.2);
 }
 
 .glow-sm {
-  box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
 }
 
 /* ─── Card Hover ────────────────────────────────────────────── */
@@ -111,8 +111,8 @@ body {
 
 /* ─── Pulse Animation ───────────────────────────────────────── */
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 5px rgba(99, 102, 241, 0.3); }
-  50% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.7); }
+  0%, 100% { box-shadow: 0 0 5px rgba(37, 99, 235, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.7); }
 }
 
 .pulse-glow {

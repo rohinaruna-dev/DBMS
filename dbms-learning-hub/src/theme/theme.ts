@@ -5,18 +5,18 @@ import { createTheme, alpha } from '@mui/material/styles';
 
 // ─── Design Tokens ──────────────────────────────────────────
 const tokens = {
-  // Primary: Deep Indigo/Violet
+  // Primary: Professional Corporate Blue
   primary: {
-    main: '#6366f1',
-    light: '#818cf8',
-    dark: '#4f46e5',
+    main: '#2563eb',
+    light: '#60a5fa',
+    dark: '#1d4ed8',
     contrastText: '#ffffff',
   },
-  // Secondary: Teal/Cyan
+  // Secondary: Sophisticated Slate
   secondary: {
-    main: '#06b6d4',
-    light: '#22d3ee',
-    dark: '#0891b2',
+    main: '#475569',
+    light: '#94a3b8',
+    dark: '#334155',
     contrastText: '#ffffff',
   },
   // Accent
@@ -34,12 +34,12 @@ export const lightTheme = createTheme({
     primary: tokens.primary,
     secondary: tokens.secondary,
     background: {
-      default: '#f8faff',
+      default: '#f8fafc',
       paper: '#ffffff',
     },
     text: {
-      primary: '#1e1b4b',
-      secondary: '#4c4a6e',
+      primary: '#0f172a',
+      secondary: '#475569',
     },
     success: { main: tokens.success },
     error: { main: tokens.error },
@@ -133,24 +133,24 @@ export const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#818cf8',
-      light: '#a5b4fc',
-      dark: '#6366f1',
+      main: '#60a5fa',
+      light: '#93c5fd',
+      dark: '#2563eb',
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#22d3ee',
-      light: '#67e8f9',
-      dark: '#06b6d4',
+      main: '#94a3b8',
+      light: '#cbd5e1',
+      dark: '#475569',
       contrastText: '#000000',
     },
     background: {
-      default: '#0f0e1a',
-      paper: '#1a1830',
+      default: '#0f172a',
+      paper: '#1e293b',
     },
     text: {
-      primary: '#e2e0ff',
-      secondary: '#a5a3cc',
+      primary: '#f1f5f9',
+      secondary: '#94a3b8',
     },
     success: { main: '#34d399' },
     error: { main: '#f87171' },
@@ -173,13 +173,13 @@ export const darkTheme = createTheme({
       styleOverrides: {
         root: {
           backgroundImage: 'none',
-          backgroundColor: alpha('#1a1830', 0.9),
+          backgroundColor: alpha('#1e293b', 0.9),
           backdropFilter: 'blur(20px)',
-          boxShadow: '0 1px 3px rgba(0,0,0,0.3), 0 8px 24px rgba(129,140,248,0.08)',
-          border: '1px solid rgba(129,140,248,0.15)',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.3), 0 8px 24px rgba(96,165,250,0.08)',
+          border: '1px solid rgba(96,165,250,0.15)',
           transition: 'box-shadow 0.3s ease, transform 0.3s ease',
           '&:hover': {
-            boxShadow: '0 4px 12px rgba(0,0,0,0.4), 0 20px 40px rgba(129,140,248,0.15)',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.4), 0 20px 40px rgba(96,165,250,0.15)',
             transform: 'translateY(-2px)',
           },
         },
@@ -194,11 +194,11 @@ export const darkTheme = createTheme({
           fontWeight: 600,
         },
         containedPrimary: {
-          background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
-          boxShadow: '0 4px 15px rgba(99,102,241,0.4)',
+          background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
+          boxShadow: '0 4px 15px rgba(37,99,235,0.4)',
           '&:hover': {
-            background: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)',
-            boxShadow: '0 6px 20px rgba(99,102,241,0.5)',
+            background: 'linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%)',
+            boxShadow: '0 6px 20px rgba(37,99,235,0.5)',
           },
         },
       },
