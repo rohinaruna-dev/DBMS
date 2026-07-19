@@ -453,19 +453,15 @@ export default function HomePage() {
           sx={{
             display: 'flex',
             gap: 3,
-            animation: 'marquee 20s linear infinite',
-            '@keyframes marquee': {
-              '0%': { transform: 'translateX(0)' },
-              '100%': { transform: 'translateX(-50%)' },
-            },
+            flexWrap: 'wrap',
+            justifyContent: 'center',
           }}
         >
-          {[...dbmsApps, ...dbmsApps].map((app, i) => (
+          {dbmsApps.map((app, i) => (
             <Chip
               key={i}
               label={app}
               sx={{
-                flexShrink: 0,
                 fontWeight: 700,
                 bgcolor: alpha(theme.palette.primary.main, 0.1),
                 border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,

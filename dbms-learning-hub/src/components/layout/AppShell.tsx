@@ -106,7 +106,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           }}
         >
           <img 
-            src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fdbms-jagvs0asj-rohinaruna-1042s-projects.vercel.app&count_bg=%232563EB&title_bg=%230F172A&title=Total+Views&edge_flat=true" 
+            src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fdbms-jagvs0asj-rohinaruna-1042s-projects.vercel.app&countColor=%232563eb" 
             alt="Visitor Count" 
           />
         </Box>
